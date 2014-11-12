@@ -1,5 +1,5 @@
 AC_PREREQ(2.60)
-AC_INIT(sbc, 1.1)
+AC_INIT(sbc, 1.2)
 
 AM_INIT_AUTOMAKE([foreign subdir-objects color-tests])
 AC_CONFIG_HEADERS(config.h)
@@ -43,6 +43,14 @@ AC_ARG_ENABLE(pie, AC_HELP_STRING([--enable-pie],
 		LDFLAGS="$LDFLAGS -pie"
 	fi
 ])
+
+AC_ARG_ENABLE(high-precision, AC_HELP_STRING([--enable-high-precision],
+					[enable SBC high precision support]),
+					[enable_high_precision=${enableval}])
+if (test "${enable_high_precision}" = "yes"); then
+	AC_DEFINE(SBC_HIGH_PRECISION, 1,
+		[Define to 1 to enable high precision build of SBC encoder])
+fi
 
 AC_ARG_ENABLE(tools, AC_HELP_STRING([--disable-tools],
 		[disable SBC tools]), [enable_tools=${enableval}])
