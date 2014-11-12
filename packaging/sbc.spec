@@ -1,11 +1,11 @@
 Name:    sbc
-Version: 1.1
+Version: 1.2
 Release: 0
 Summary: Bluetooth SBC Utilities
 Group:   Multimedia/Utilities
 License: GPL-2.0
 URL:     http://www.bluez.org
-Source0: http://www.kernel.org/pub/linux/bluetooth/sbc-1.1.tar.gz
+Source0: http://www.kernel.org/pub/linux/bluetooth/%{name}-%{version}.tar.gz
 BuildRequires:  pkgconfig(sndfile)
 
 %description
@@ -25,10 +25,10 @@ This package contains Bluetooth SBC development files
 
 %build
 %configure --enable-shared --disable-static --prefix=/usr
-make %{?_smp_mflags}
+%__make %{?_smp_mflags}
 
 %install
-make install DESTDIR=%{buildroot}
+%make_install
 rm -rf %{buildroot}%{_libdir}/*.la
 
 %clean
