@@ -3,7 +3,7 @@ Version: 1.2
 Release: 0
 Summary: Bluetooth SBC Utilities
 Group:   Multimedia/Utilities
-License: GPL-2.0
+License: GPL-2.0 and LGPL-2.1
 URL:     http://www.bluez.org
 Source0: http://www.kernel.org/pub/linux/bluetooth/%{name}-%{version}.tar.gz
 BuildRequires:  pkgconfig(sndfile)
